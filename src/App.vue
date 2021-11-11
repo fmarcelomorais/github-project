@@ -1,28 +1,42 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="App">
+    <div class="topo">
+      <Busca />     
+    </div>
+    <Usuario />
+    <Repositorios />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Busca from './components/Busca.vue'
+import Usuario from './components/Usuario.vue'
+import Repositorios from './components/Repositorios.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: {Busca, Usuario, Repositorios}
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+
+   
+  }
+  #App{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: blue;
+
+  }
+  .topo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+    padding: 20px;
+  }
 </style>
