@@ -1,12 +1,11 @@
 <template>
-  <div class="repositorio">
-    <div class="card" v-for="repo in repositorios" :key="repo.id">
-      <div class="titulo" >
-        <h3>{{ repo.name }}</h3>
-      </div>
-        <span>{{ repo.description }}</span>
-    </div>
-  </div>
+  <div>
+  <b-jumbotron :header="repo.name" :lead="repo.description"
+  v-for="repo in repositorios" :key="repo.id">
+    <p>Repositorio {{repo.private ? 'Privado':'Público' }}</p>
+    <b-link :href="repo.html_url" variant="primary">Ir ao Repositório</b-link>
+  </b-jumbotron>
+</div>
 </template>
 
 <script>
@@ -34,18 +33,5 @@ export default {
 </script>
 
 <style scoped>
-.repositorio{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.card{
-   
-    background-color: rgb(76, 0, 255);
-    width: 200px;
-    height: 200px;
-    color: aliceblue;
-    margin: 5px;
-    
-}
+
 </style>

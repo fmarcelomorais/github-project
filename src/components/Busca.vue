@@ -1,39 +1,27 @@
 <template>
-    <div class="busca">
-        <input type="text"> <button>Buscar</button>
-    </div>
+    
+  <b-navbar type="dark" variant="dark" >
+    <b-nav-form >
+      <b-form-input class="mr-sm-2" placeholder="Usuario" v-model="busca"></b-form-input>
+      <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">Pesquisar</b-button>
+    </b-nav-form>
+    <h1>{{busca}}</h1>
+  </b-navbar>
+
 </template>
 
 <script>
-export default {
 
+export default {
+   
+   data(){
+     return{
+        busca: ''
+     }
+   }
 }
 </script>
 
 <style scoped>
-    .busca{
-       display: flex;
-        width: 100%;
-
-    }
-    .busca input{
-        width: 100%;
-        height: 30px;
-        font-size: 1.2rem;
-        text-transform: lowercase;
-        
-    }
-    .busca button{
-        background-color: rgb(19, 214, 248);
-        border-radius: 5%;
-        border: none;
-        width: 10%;
-        cursor: pointer;
-        margin-left: 5px;
-        font-size: 1.0rem;  
-    }
-    .busca button:hover{
-        background-color: rgb(3, 172, 202);
-        color: #fff;
-    }
+    
 </style>

@@ -1,19 +1,18 @@
 <template>
-  <div class="usuario">
-      <div class="avatar">
-          <img :src="user.avatar_url" alt="img"/>
-      </div>
-      <div class="dados">
-          <h2>{{user.name}}</h2>
-          <p>{{user.bio}}</p>
-      </div>
-      <div class="dados1">
-          <p>Followers {{user.followers}}</p>
-          <p>Following {{user.following}}</p>
-          <p>Repositorios {{user.public_repos}}</p>
-      </div>
-
-  </div>
+  
+    <b-card 
+      
+      :img-src="user.avatar_url"
+      img-top      
+      style="max-width: 15rem"
+      class="mb-2"      >
+      <h5><b-link :href="user.html_url">{{user.name}}</b-link></h5>
+      <b-card-text>
+        
+          {{user.bio}}
+      </b-card-text>
+    </b-card>
+ 
 </template>
 
 <script>
@@ -41,22 +40,5 @@ export default {
 </script>
 
 <style scoped>
-    .usuario{
-        display: flex;
-        color: #fff;
-    }
-    .avatar{
-        display: flex;
-    }
-    .avatar img{
-        display: flex;
-        border-radius: 50%;
-        width: 50%;        
-        
-    }
-    .dados{
-        color: #fff;
-        display: flex;
-        justify-content: flex-start;
-    }
+    
 </style>

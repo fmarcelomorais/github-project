@@ -1,42 +1,42 @@
-<template>
-  <div id="App">
-    <div class="topo">
-      <Busca />     
+<template>  
+<div class="waraper">
+    <div class="busca">
+      <Busca />   
     </div>
-    <Usuario />
-    <Repositorios />
-  </div>
+    <div class="usuario">
+      <Usuario />
+    </div>
+    <div class="repositorio">
+      <Repositorios />
+    </div>
+</div>      
 </template>
 
 <script>
 import Busca from './components/Busca.vue'
 import Usuario from './components/Usuario.vue'
 import Repositorios from './components/Repositorios.vue'
+
 export default {
-  components: {Busca, Usuario, Repositorios}
+  components: {Busca, Usuario, Repositorios }
 }
 </script>
 
 <style scoped>
-  *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-
-   
-  }
-  #App{
-    display: flex;
+  .waraper{
+    display: flex;    
     flex-direction: column;
-    justify-content: center;
-    background-color: blue;
-
+    flex-wrap: wrap;
   }
-  .topo{
+  .busca{
+  
+  }
+  .usuario{
+   display: flex;
+  }
+  .repositorio{
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: blueviolet;
-    padding: 20px;
+    
   }
+
 </style>
