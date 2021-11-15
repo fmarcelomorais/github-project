@@ -1,19 +1,18 @@
-<template>
-    
-  <b-navbar type="dark" variant="dark" >
-    <b-nav-form >
-      <b-form-input class="mr-sm-2" placeholder="Usuario" v-model="busca"></b-form-input>
-      <b-button variant="outline-success" class="my-2 my-sm-0" type="submit">Pesquisar</b-button>
-    </b-nav-form>
-    <h1>{{busca}}</h1>
-  </b-navbar>
-
+<template>  
+  <div class="busca">
+    <b-input-group prepend="Usuario" class="mt-2">
+      <b-form-input></b-form-input>
+      <b-input-group-append>
+          <b-button variant="success">Buscar</b-button>
+      </b-input-group-append>
+    </b-input-group>
+  </div>  
 </template>
 
 <script>
 
 export default {
-   
+   name: 'busca',
    data(){
      return{
         busca: ''
@@ -22,6 +21,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+  .busca{
+    grid-area: busca;
+    background-color: rgb(102, 102, 102);
+    padding: 5px;
+  }
     
 </style>

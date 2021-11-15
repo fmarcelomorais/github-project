@@ -1,42 +1,41 @@
 <template>  
-<div class="waraper">
-    <div class="busca">
-      <Busca />   
-    </div>
-    <div class="usuario">
-      <Usuario />
-    </div>
-    <div class="repositorio">
-      <Repositorios />
-    </div>
+<div id="app">
+    <Busca />
+    <Usuario />
+    <Conteudo />
+    <Rodape />
 </div>      
 </template>
 
 <script>
 import Busca from './components/Busca.vue'
 import Usuario from './components/Usuario.vue'
-import Repositorios from './components/Repositorios.vue'
+import Conteudo from './components/Conteudo.vue'
+import Rodape from './components/Rodape.vue'
+
 
 export default {
-  components: {Busca, Usuario, Repositorios }
+  components: {Busca, Usuario, Conteudo, Rodape }
 }
 </script>
 
-<style scoped>
-  .waraper{
-    display: flex;    
-    flex-direction: column;
-    flex-wrap: wrap;
+<style >
+  *{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
   }
-  .busca{
-  
-  }
-  .usuario{
-   display: flex;
-  }
-  .repositorio{
-    display: flex;
-    
+  #app{
+    height: 100vh;
+    display: grid;
+
+    grid-auto-rows:  60px 1fr 50px;
+    grid-auto-columns: 350px 1fr;
+    grid-template-areas: 
+      'busca busca'
+      'usuario conteudo'
+      'rodape rodape'
+    ;
   }
 
 </style>
