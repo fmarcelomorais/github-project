@@ -1,9 +1,14 @@
 <template>  
 <div id="app">
+  
+
     <Busca />
     <Usuario />
     <Conteudo />
     <Rodape />
+
+  
+
 </div>      
 </template>
 
@@ -36,6 +41,23 @@ export default {
       'usuario conteudo'
       'rodape rodape'
     ;
+
   }
+
+  @media (max-width: 768px) {
+  
+  #app{
+    grid-auto-rows: 80px 1fr 2fr 1fr;
+    grid-auto-columns: 1fr;
+    grid-template-areas: 
+      'busca'
+      'usuario'
+      'conteudo'
+      'rodape'
+    ;
+   
+  }
+
+}
 
 </style>

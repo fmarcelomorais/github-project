@@ -1,6 +1,6 @@
 <template>  
   <div class="busca">
-    <b-input-group prepend="Usuario" class="mt-2">
+    <b-input-group prepend="Usuario">
       <b-form-input></b-form-input>
       <b-input-group-append>
           <b-button variant="success">Buscar</b-button>
@@ -24,8 +24,9 @@ export default {
 <style >
   .busca{
     grid-area: busca;
-    background-color: rgb(102, 102, 102);
+    background-color: rgb(126, 126, 126);
     padding: 5px;
   }
+
     
 </style>

@@ -1,13 +1,24 @@
 <template>
-  <div class="repository" >
-    <b-jumbotron class="m-2 jbt"  
-      v-for="repositorio in repositorios" :key="repositorio.id"
-        :header="repositorio.name"
-        :lead="repositorio.description"
-      >
-      {{repositorio.name}}
-      </b-jumbotron>
-  </div>
+  <div class="m-3">
+  <b-jumbotron 
+    bg-variant="dark" 
+    text-variant="white" 
+    border-variant="dark"
+    v-for="repo in repositorios" :key="repo.id"
+    >
+    <template #header>{{repo.name}}</template>
+
+    <template #lead>
+      {{repo.description}}
+    </template>
+
+    <hr class="my-4">
+
+    <p>
+      <b-link :href="repo.html_url" >{{repo.name}}</b-link>
+    </p>
+  </b-jumbotron>
+</div>
 </template>
 
 <script>
@@ -36,18 +47,5 @@ export default {
 </script>
 
 <style >
-  .repository{
-    display: flex;
-    
-    justify-content:stretch;
-    flex-wrap: wrap;    
-  }
-  .repository .jbt{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    flex-wrap: wrap;   
-    
-  }
+ 
 </style>

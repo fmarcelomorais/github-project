@@ -1,13 +1,13 @@
 <template>
-  <section class="user">
+  <section>
       <b-card
     :title="user.name"
     :img-src="user.avatar_url"
     img-alt="Image"
     img-top
     tag="article"
-    style="max-width: 20rem;"
-    class="mb-2"
+    fluid
+
   >
     <b-card-text>
       {{user.bio}}
@@ -49,9 +49,6 @@ export default {
 <style >
     .user{
       grid-area: usuario;
-
       display: flex;
-      
-     
-    }
+ }
 </style>

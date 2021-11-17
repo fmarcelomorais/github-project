@@ -1,7 +1,12 @@
 <template>
-    <section class="content m-3">
+<div>
+    <h2 class="m-3"><b-badge>Repositorios</b-badge></h2>
+        <br>
+    <section fluid>
         <Repositorio />
     </section>
+
+</div>
 </template>
 
 <script>
@@ -14,11 +19,8 @@ export default {
 
 <style>
     .content{
-        grid-area: conteudo;
-    
-        display: flex;
-       
-
-        
+        grid-area: conteudo;    
+        display: flex;        
     }
+
 </style>
