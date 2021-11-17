@@ -25,6 +25,7 @@
 import api from "../service/api";
 export default {
   name: 'repositorio',
+  props: ['user'],
   data() {
     return {
       repositorios: {},
@@ -36,7 +37,7 @@ export default {
   methods: {
     getRepos() {
       api
-        .get("/users/fmarcelomorais/repos")
+        .get(`/users/${this.user}/repos}`)
         .then((res) => {
           this.repositorios = res.data;
         })

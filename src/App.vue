@@ -1,14 +1,9 @@
 <template>  
-<div id="app">
-  
-
-    <Busca />
+<div id="app">  
+    <Busca />   
     <Usuario />
     <Conteudo />
     <Rodape />
-
-  
-
 </div>      
 </template>
 
@@ -20,7 +15,12 @@ import Rodape from './components/Rodape.vue'
 
 
 export default {
-  components: {Busca, Usuario, Conteudo, Rodape }
+  components: {Busca, Usuario, Conteudo, Rodape },
+  data(){
+    return{
+      nome: ''
+    }
+  }
 }
 </script>
 
@@ -39,6 +39,7 @@ export default {
     grid-template-areas: 
       'busca busca'
       'usuario conteudo'
+      'usuario conteudo'
       'rodape rodape'
     ;
 
@@ -47,10 +48,9 @@ export default {
   @media (max-width: 768px) {
   
   #app{
-    grid-auto-rows: 80px 1fr 2fr 1fr;
+    grid-auto-rows: 1fr 2fr 1fr;
     grid-auto-columns: 1fr;
     grid-template-areas: 
-      'busca'
       'usuario'
       'conteudo'
       'rodape'

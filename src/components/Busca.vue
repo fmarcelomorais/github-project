@@ -1,23 +1,25 @@
 <template>  
   <div class="busca">
     <b-input-group prepend="Usuario">
-      <b-form-input></b-form-input>
+      <b-form-input ></b-form-input>
       <b-input-group-append>
-          <b-button variant="success">Buscar</b-button>
+          <b-button variant="success" @click="teste">Buscar</b-button>
       </b-input-group-append>
     </b-input-group>
-  </div>  
+   
+  </div>    
 </template>
 
 <script>
-
 export default {
    name: 'busca',
+   props: ['info'],  
    data(){
      return{
-        busca: ''
+      
+     
      }
-   }
+   },
 }
 </script>
 
