@@ -1,43 +1,53 @@
 <template>
-  <div class="m-3">
-  <b-jumbotron 
-    bg-variant="dark" 
-    text-variant="white" 
-    border-variant="dark"
-    v-for="repo in repositorios" :key="repo.id"
-    >
-    <template #header>{{repo.name}}</template>
+  <div class="m-3">   
+  <b-alert v-if="repositorios.length < 1" variant="danger" show dismissible>Sem Repositorios</b-alert>
+  <div v-else>
+    <b-jumbotron 
+      bg-variant="dark" 
+      text-variant="white" 
+      border-variant="dark"
+      v-for="repo in repositorios" :key="repo.id"
+      >
+      
+      <template #header>{{repo.name}}</template>
 
-    <template #lead>
-      {{repo.description}}
-    </template>
+      <template #lead>
+        {{repo.description}}
+      </template>
 
-    <hr class="my-4">
+      <hr class="my-4">
 
-    <p>
-      <b-link :href="repo.html_url" >{{repo.name}}</b-link>
-    </p>
-  </b-jumbotron>
+      <p>
+        <b-link :href="repo.html_url" >{{repo.name}}</b-link>
+      </p>
+    </b-jumbotron>
+  </div>
+
 </div>
 </template>
 
 <script>
 import api from "../service/api";
+import barramento from '@/barramento'
 export default {
-  name: 'repositorio',
+  name: 'repositorios',
   props: ['user'],
   data() {
     return {
       repositorios: {},
+      nome: ''
     };
   },
-  created() {
-    this.getRepos();
+  created() {  
+      barramento.$on('dadoUsuario', dado => {
+        this.nome = dado
+        this.getRepos()
+      })
   },
   methods: {
     getRepos() {
       api
-        .get(`/users/${this.user}/repos}`)
+        .get(`/users/${this.nome}/repos`)
         .then((res) => {
           this.repositorios = res.data;
         })

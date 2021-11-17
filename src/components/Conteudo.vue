@@ -1,9 +1,10 @@
 <template>
 <div>
-    <h2 class="m-3"><b-badge>Repositorios</b-badge></h2>
+    <h2 class="m-3" v-if="componente === 'Usuarios'" ><b-badge variant="success">Usuarios</b-badge></h2>
+    <h2 class="m-3" v-else><b-badge variant="primary">Repositorios</b-badge></h2>
         <br>
     <section fluid>
-        <Repositorio />
+        <component :is="componente"/>
     </section>
 
 </div>
@@ -11,9 +12,24 @@
 
 <script>
 import Repositorio from './Repositorio.vue'
+import Usuarios from './Usuarios.vue'
+import barramento from '@/barramento'
 export default {
     name: 'conteudo',
-    components: { Repositorio }
+    components: { Repositorio, Usuarios },
+    data(){
+        return{
+            componente: 'Repositorio'
+        }
+    },
+    created(){
+        barramento.$on('UserAll', users => {
+            this.componente = users
+        })
+        barramento.$on('Repositorys', users => {
+            this.componente = users
+        })
+    }
 }
 </script>
 

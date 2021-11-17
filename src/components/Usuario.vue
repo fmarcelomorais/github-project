@@ -1,6 +1,6 @@
 <template>
   <section>   
-    <div class="busca">
+    <div class="m-3">
     <b-input-group prepend="Usuario">
       <b-form-input v-model="user"></b-form-input>
       <b-input-group-append>
@@ -9,7 +9,7 @@
     </b-input-group>
    
   </div>      
-      <b-card
+      <b-card 
         :title="users.name"
         :img-src="users.avatar_url"
         img-alt="Image"
@@ -32,6 +32,7 @@
 
 <script>
 import api from '../service/api'
+import barramento from '@/barramento'
 
 export default {
   name: "user",
@@ -46,9 +47,9 @@ export default {
     this.getUser()
   }, */
   methods:{
-    getUser(){
-      let nome = this.user
-      api.get("/users/"+nome).then(res => {
+    getUser(){      
+    barramento.$emit('dadoUsuario', this.user)
+         api.get(`users/${this.user}`).then(res => {
         this.users = res.data;
       }).catch(err => {
         console.log(err)

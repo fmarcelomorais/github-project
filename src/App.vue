@@ -1,6 +1,6 @@
 <template>  
 <div id="app">  
-    <Busca />   
+    <Topo />  
     <Usuario />
     <Conteudo />
     <Rodape />
@@ -8,14 +8,14 @@
 </template>
 
 <script>
-import Busca from './components/Busca.vue'
+import Topo from './components/Topo.vue'
 import Usuario from './components/Usuario.vue'
 import Conteudo from './components/Conteudo.vue'
 import Rodape from './components/Rodape.vue'
 
 
 export default {
-  components: {Busca, Usuario, Conteudo, Rodape },
+  components: {Topo, Usuario, Conteudo, Rodape },
   data(){
     return{
       nome: ''
@@ -34,11 +34,10 @@ export default {
     height: 100vh;
     display: grid;
 
-    grid-auto-rows:  60px 1fr 50px;
+    grid-auto-rows:  60px 2fr 50px;
     grid-auto-columns: 350px 1fr;
     grid-template-areas: 
-      'busca busca'
-      'usuario conteudo'
+      'topo topo'
       'usuario conteudo'
       'rodape rodape'
     ;
@@ -48,9 +47,10 @@ export default {
   @media (max-width: 768px) {
   
   #app{
-    grid-auto-rows: 1fr 2fr 1fr;
+    grid-auto-rows: 1fr 1fr 2fr 1fr;
     grid-auto-columns: 1fr;
     grid-template-areas: 
+      'topo'
       'usuario'
       'conteudo'
       'rodape'
