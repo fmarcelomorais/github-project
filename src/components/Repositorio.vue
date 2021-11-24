@@ -18,7 +18,7 @@
       <hr class="my-4">
 
       <p>
-        <b-link :href="repo.html_url" >{{repo.name}}</b-link>
+        <b-link :href="repo.html_url" target='_blank'>{{repo.name}}</b-link>
       </p>
     </b-jumbotron>
   </div>
